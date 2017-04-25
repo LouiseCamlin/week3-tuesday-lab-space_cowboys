@@ -65,11 +65,11 @@ class Bounty
       db.close()
   end
 
-  def find
+  def Bounty.find(id)
     db = PG.connect({ dbname: 'space_cowboys', host: 'localhost' })
 
     sql =
-      "SELECT * FROM bounties WHERE id = #{@id};"
+      "SELECT * FROM bounties WHERE id = #{id};"
 
     result = Bounty.new(db.exec(sql).first())
 
